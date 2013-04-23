@@ -23,7 +23,7 @@ public class VersionFix {
             this.o = o;
         }
 
-        @Override
+        //@Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             if (method.getName().equals("getProxyObject")) {
                 return o;
@@ -81,9 +81,9 @@ public class VersionFix {
         return fuck;
     }
 
-    public static Object getNew(Class clazz, Class[] classes, Object... params) {
+    public static Object getNew(Class<?> clazz, Class<?>[] classes, Object... params) {
         try {
-            Constructor constructor = clazz.getDeclaredConstructor(classes);
+            Constructor<?> constructor = clazz.getDeclaredConstructor(classes);
             return constructor.newInstance(params);
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,7 +91,7 @@ public class VersionFix {
         return null;
     }
 
-    public static Object callStaticMethod(Class clazz, String methodName, Class[] classes, Object... params) {
+    public static Object callStaticMethod(Class<?> clazz, String methodName, Class<?>[] classes, Object... params) {
         for (int i = 0; i < params.length; i++) {
             if (params[i] instanceof FixInterface) {
                 params[i] = ((FixInterface) params[i]).getProxyObject();
@@ -107,7 +107,7 @@ public class VersionFix {
         return null;
     }
 
-    public static Object callMethod(Object o, String methodName, Class[] classes, Object... params) {
+    public static Object callMethod(Object o, String methodName, Class<?>[] classes, Object... params) {
         try {
             for (int i = 0; i < params.length; i++) {
                 if (params[i] instanceof FixInterface) {
@@ -146,7 +146,7 @@ public class VersionFix {
         return null;
     }
 
-    public static Object getStaticField(Class clazz, String fieldName) {
+    public static Object getStaticField(Class<?> clazz, String fieldName) {
         try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
@@ -157,7 +157,7 @@ public class VersionFix {
         return null;
     }
 
-    public static Object getField(Object o, Class clazz, String fieldName) {
+    public static Object getField(Object o, Class<?> clazz, String fieldName) {
         try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
@@ -171,7 +171,7 @@ public class VersionFix {
 
     public static void setStaticField(String className, String fieldName, Object value) {
         try {
-            Class clazz = fixClass(className);
+            Class<?> clazz = fixClass(className);
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
             field.set(null, value);
@@ -189,7 +189,7 @@ public class VersionFix {
         return null;
     }
 
-    public static Class fixClass(String className) {
+    public static Class<?> fixClass(String className) {
         className = className.replace("org.bukkit.craftbukkit.", "org.bukkit.craftbukkit." + version);
         className = className.replace("net.minecraft.server.", "net.minecraft.server." + version);
         try {
@@ -200,8 +200,8 @@ public class VersionFix {
         }
     }
 
-    public static Class[] fixClass(String[] classNames) {
-        Class[] classes = new Class[classNames.length];
+    public static Class<?>[] fixClass(String[] classNames) {
+        Class<?>[] classes = new Class[classNames.length];
         for (int i = 0; i < classes.length; i++) classes[i] = fixClass(classNames[i]);
         return classes;
     }

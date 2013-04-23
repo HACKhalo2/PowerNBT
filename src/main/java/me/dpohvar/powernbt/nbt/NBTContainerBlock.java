@@ -1,7 +1,7 @@
 package me.dpohvar.powernbt.nbt;
 
 import me.dpohvar.powernbt.PowerNBT;
-import net.minecraft.server.v1_4_R1.EntityPlayer;
+//import net.minecraft.server.v1_4_R1.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

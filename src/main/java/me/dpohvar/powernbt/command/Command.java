@@ -11,7 +11,6 @@ import static me.dpohvar.powernbt.PowerNBT.plugin;
 
 public abstract class Command implements CommandExecutor {
 
-    @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
         Caller caller = plugin.getCaller(sender);
         try {
