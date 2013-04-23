@@ -12,8 +12,8 @@ import static me.dpohvar.powernbt.utils.VersionFix.getNew;
  * @author DPOH-VAR
  */
 public class NBTTagDouble extends NBTTagNumeric {
-    private static Class clazz = classNBTTagDouble;
-    private static Class[] classes = new Class[]{String.class, double.class};
+    private static Class<?> clazz = classNBTTagDouble;
+    private static Class<?>[] classes = new Class<?>[]{String.class, double.class};
     private static Field fieldData;
     private static Method methodRead;
     private static Method methodWrite;

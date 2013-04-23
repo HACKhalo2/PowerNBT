@@ -311,7 +311,8 @@ public class Argument {
                 if (!q.isEmpty()) {
                     q.remove(q.size() - 1);
                     NBTQuery nq = new NBTQuery(q);
-                    NBTType nt = NBTType.fromBase(paramContainer.getTag(nq));
+                    @SuppressWarnings("unused")
+					NBTType nt = NBTType.fromBase(paramContainer.getTag(nq));
                 }
                 if (type == NBTType.END) {
                     TypeCompleter comp = plugin.getTypeCompleter();

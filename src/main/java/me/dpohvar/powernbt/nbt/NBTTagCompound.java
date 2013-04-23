@@ -17,8 +17,8 @@ import static me.dpohvar.powernbt.utils.VersionFix.getNew;
  * @author DPOH-VAR
  */
 public class NBTTagCompound extends NBTBase {
-    private static Class clazz = classNBTTagCompound;
-    private static Class[] classes = new Class[]{String.class};
+    private static Class<?> clazz = classNBTTagCompound;
+    private static Class<?>[] classes = new Class<?>[]{String.class};
     private static Field fieldMap;
     private static Method methodRead;
     private static Method methodWrite;
@@ -90,7 +90,8 @@ public class NBTTagCompound extends NBTBase {
         return handle.hashCode();
     }
 
-    public Map<String, Object> getHandleMap() {
+    @SuppressWarnings("unchecked")
+	public Map<String, Object> getHandleMap() {
         try {
             return (Map<String, Object>) fieldMap.get(handle);
         } catch (IllegalAccessException e) {

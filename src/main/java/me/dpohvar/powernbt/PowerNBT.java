@@ -3,7 +3,6 @@ package me.dpohvar.powernbt;
 import me.dpohvar.powernbt.command.CommandNBT;
 import me.dpohvar.powernbt.completer.CompleterNBT;
 import me.dpohvar.powernbt.completer.TypeCompleter;
-import me.dpohvar.powernbt.nbt.NBTTagCompound;
 import me.dpohvar.powernbt.utils.Caller;
 import me.dpohvar.powernbt.utils.Tokenizer;
 import me.dpohvar.powernbt.utils.Translator;

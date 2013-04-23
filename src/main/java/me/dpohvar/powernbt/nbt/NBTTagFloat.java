@@ -12,8 +12,8 @@ import static me.dpohvar.powernbt.utils.VersionFix.getNew;
  * @author DPOH-VAR
  */
 public class NBTTagFloat extends NBTTagNumeric {
-    private static Class clazz = classNBTTagFloat;
-    private static Class[] classes = new Class[]{String.class, float.class};
+    private static Class<?> clazz = classNBTTagFloat;
+    private static Class<?>[] classes = new Class<?>[]{String.class, float.class};
     private static Field fieldData;
     private static Method methodRead;
     private static Method methodWrite;

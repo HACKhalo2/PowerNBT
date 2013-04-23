@@ -12,7 +12,8 @@ public class TypeCompleter {
 
     private HashMap<String, Object> templates = new HashMap<String, Object>();
 
-    public TypeCompleter(File ymlFolder) {
+    @SuppressWarnings("unchecked")
+	public TypeCompleter(File ymlFolder) {
         try {
             Yaml yaml = new Yaml();
             File file = new File(ymlFolder, "templates.yml");
@@ -39,7 +40,8 @@ public class TypeCompleter {
         templates.put(name, ymlRoot);
     }
 
-    public List<String> getNextKeys(String key, NBTQuery query) {
+    @SuppressWarnings("unchecked")
+	public List<String> getNextKeys(String key, NBTQuery query) {
         List<String> res = new ArrayList<String>();
         Object x = getObjectByQueue(key, query.getQueue());
         if (x instanceof List) res.add("[]");
@@ -65,11 +67,11 @@ public class TypeCompleter {
             Object t = queue.poll();
             if (current == null) return null;
             if (current instanceof Map && t instanceof String) {
-                current = ((Map) current).get(t);
+                current = ((Map<?, ?>) current).get(t);
                 continue;
             }
             if (current instanceof List && t instanceof Integer) {
-                current = ((List) current).get(0);
+                current = ((List<?>) current).get(0);
                 continue;
             }
             if (current instanceof String) {

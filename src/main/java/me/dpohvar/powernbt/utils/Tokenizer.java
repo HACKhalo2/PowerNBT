@@ -53,7 +53,7 @@ public class Tokenizer {
         return openComment != null && openComment.equals(s);
     }
 
-    private boolean isCloseComment(String s, char c) {
+    protected boolean isCloseComment(String s, char c) {
         return isCloseComment(s + c);
     }
 

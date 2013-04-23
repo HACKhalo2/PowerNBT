@@ -15,8 +15,8 @@ import static me.dpohvar.powernbt.utils.VersionFix.getNew;
  * @author DPOH-VAR
  */
 public class NBTTagIntArray extends NBTTagNumericArray {
-    private static Class clazz = classNBTTagIntArray;
-    private static Class[] classes = new Class[]{String.class, int[].class};
+    private static Class<?> clazz = classNBTTagIntArray;
+    private static Class<?>[] classes = new Class<?>[]{String.class, int[].class};
     private static Field fieldData;
     private static Method methodRead;
     private static Method methodWrite;

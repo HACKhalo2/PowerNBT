@@ -4,8 +4,6 @@ import me.dpohvar.powernbt.PowerNBT;
 import me.dpohvar.powernbt.nbt.*;
 import me.dpohvar.powernbt.utils.Caller;
 
-import java.util.Map;
-
 public class ActionAddAll extends Action {
 
     private final Caller caller;

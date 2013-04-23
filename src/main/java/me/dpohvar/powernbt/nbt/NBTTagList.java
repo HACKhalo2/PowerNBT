@@ -13,8 +13,8 @@ import static me.dpohvar.powernbt.utils.VersionFix.getNew;
  * @author DPOH-VAR
  */
 public class NBTTagList extends NBTBase {
-    private static Class clazz = classNBTTagList;
-    private static Class[] classes = new Class[]{String.class};
+    private static Class<?> clazz = classNBTTagList;
+    private static Class<?>[] classes = new Class<?>[]{String.class};
     private static Field fieldList;
     private static Field fieldType;
     private static Method methodRead;
@@ -91,7 +91,8 @@ public class NBTTagList extends NBTBase {
         return handle.hashCode();
     }
 
-    public List<Object> getHandleList() {
+    @SuppressWarnings("unchecked")
+	public List<Object> getHandleList() {
         try {
             return (List<Object>) fieldList.get(handle);
         } catch (IllegalAccessException e) {

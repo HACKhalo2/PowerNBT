@@ -180,7 +180,8 @@ public class VersionFix {
         }
     }
 
-    public static <T> T getShell(Class<T> proxy, final Object object) {
+    @SuppressWarnings("unchecked")
+	public static <T> T getShell(Class<T> proxy, final Object object) {
         if (object != null) try {
             return (T) Proxy.newProxyInstance(proxy.getClassLoader(), new Class[]{proxy}, new FixHandler(object));
         } catch (Exception e) {
